@@ -1,0 +1,23 @@
+<!-- <p appFundoAmarelo >
+  Texto com fundo amarelo
+</p>
+
+<button appFundoAmarelo >Teste</button>
+
+<div appFundoAmarelo>tabajara</div> -->
+
+<!-- <p appHighlighMouse>
+  Texto 
+</p> -->
+<!-- <p>tabajara</p> -->
+<!-- <p highlight [defaultColor]="'grey'" [highlightColor]="'red'">Texto HighLight</p> -->
+<!-- <p [highlight]="'red'" [defaultColor]="'grey'" >Texto HighLight</p> -->
+<div *ngIf="mostrarCursos">
+  Lista de cursos
+</div>
+
+<div *ngElse="mostrarCursos">
+  Nao existem cursos.
+</div>
+<br>
+<button (click)="onClick()">  Mostrar / esconder</button>
