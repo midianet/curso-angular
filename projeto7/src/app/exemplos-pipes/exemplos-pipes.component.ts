@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { promise } from 'protractor';
-import { Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -28,9 +26,6 @@ export class ExemplosPipesComponent implements OnInit {
     setTimeout(()  => resolve('Valor Assíncrono'), 2000)
   } )
 
-  valorAsync2 = Observable.create((o: any) => {
-    o.interval(2000).map(valor => 'Valor Assyncrono 2')
-  });
     
   constructor() { }
 
