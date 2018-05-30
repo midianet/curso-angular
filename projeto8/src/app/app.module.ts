@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 //import { CursosService } from './cursos/cursos.service';
 //import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso-nao-encontrado.component';
 import { CursosModule } from './cursos/cursos.module';
+import { AlunosModule } from './alunos/alunos.module';
 import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AppRoutingModule } from './app.routing.module';
     MatPaginatorModule,
     MatSortModule,
     AppRoutingModule,
-    CursosModule
+    CursosModule,
+    AlunosModule
 //    routing
   ],
   providers: [
