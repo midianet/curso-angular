@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class CursosService {
 
-
   getCursos(){
     return [
       {id: 1, nome: 'Angular'},
@@ -26,6 +25,5 @@ export class CursosService {
   }
 
   constructor() { }
-
 
 }

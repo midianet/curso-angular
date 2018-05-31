@@ -4,15 +4,28 @@ import { Routes, RouterModule} from '@angular/router';
 import { AlunosComponent } from "./alunos.component";
 import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
 import { AlunoDetalheComponent } from "./aluno-detalhe/aluno-detalhe.component";
+import { AlunosGuard } from "../guards/alunos.guard";
+import { AlunosDeactivateGuard } from "../guards/alunos.deactivate.guard";
+import { AlunoDetalheResolver } from "./guards/aluno-detalhe.resolver";
 
 
 const alunosRoutes: Routes = [
-    { path: 'alunos'       ,component: AlunosComponent , children: [
-        { path: 'new'      ,component: AlunoFormComponent },
-        { path: ':id'      ,component: AlunoDetalheComponent },
-        { path: ':id/edit' ,component: AlunoFormComponent }
-    ] },
-
+    { path: '',
+      component: AlunosComponent , 
+      canActivateChild: [AlunosGuard],
+      children: [
+        { path: 'new',
+            component: AlunoFormComponent },
+        { path: ':id',
+            component: AlunoDetalheComponent,
+            resolve: { aluno : AlunoDetalheResolver }
+        },
+        { path: ':id/edit',
+            component: AlunoFormComponent,
+            canDeactivate: [AlunosDeactivateGuard]
+        }
+      ] 
+    }
 ];
 
 @NgModule({
