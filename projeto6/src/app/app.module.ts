@@ -22,7 +22,6 @@ import { LogService} from './shared/log.service';
     CriarCursoModule,
   ],
   providers: [
-    //CursosService
     LogService
   ],
   bootstrap: [AppComponent]

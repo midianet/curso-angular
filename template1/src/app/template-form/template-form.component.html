@@ -1,0 +1,61 @@
+<form #frm="ngForm" (ngSubmit)="onSubmit(frm)">
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control"
+              id="nome" placeholder="Informe o nome"
+              name="nome" [(ngModel)]="usuario.nome" required #nome="ngModel"
+              [ngClass]="showError(nome)">
+      <div *ngIf="verifiy(nome)" class="alert alert-danger" role="alert">O campo é obrigatório</div>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control"
+              id="email" name="email" placeholder="Informe o email"
+              [(ngModel)]="usuario.email" required email #email="ngModel"
+              [ngClass]="showError(email)">
+    </div>
+  </div>
+  <div  class="form-row" ngModelGroup="endereco">
+    <div class="form-group col-md-2">
+        <label for="cep">Cep</label>
+        <input type="text" class="form-control"
+               id="cep" name="cep" placeholder="Informe o cep"
+               [(ngModel)]="usuario.cep" required>
+    </div>
+    <div class="form-group col-md-10">
+        <label for="complemento">Complemento</label>
+        <input type="text" class="form-control"
+                id="complemento" name="complemento" placeholder="Informe o complemento de endereço"
+                [(ngModel)]="usuario.complemento" required>
+    </div>
+    <div class="form-group col-md-12">
+        <label for="endereco">Endereço</label>
+        <input type="text" class="form-control"
+                id="endereco" name="endereco" placeholder="Informe o endereço"
+                [(ngModel)]="usuario.endereco" required>
+    </div>
+    <div class="form-group col-md-5">
+        <label for="bairro">Bairro</label>
+        <input type="text" class="form-control"
+                id="bairro" name="bairro" placeholder="Informe o bairro"
+                [(ngModel)]="usuario.bairro" required>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="cidade">Cidade</label>
+        <input type="text" class="form-control"
+                id="cidade" name="cidade" placeholder="Informe a Cidade"
+                [(ngModel)]="usuario.cidade" required>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="uf">UF</label>
+        <input type="text" class="form-control"
+                id="uf" name="uf" placeholder="Informe a UF"
+                [(ngModel)]="usuario.uf" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <button type="submit" class="btn btn-primary" [disabled]="!frm.valid">Submit</button>
+  </div>
+  <app-form-debug [form]="frm"></app-form-debug>
+</form>
